@@ -1,0 +1,39 @@
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.idea/
+.vscode/
+
+# Cursor AI
+.cursorrules
+.cursorignore
+/.cursor
+
+# Codacy
+.codacy
+
+# Snyk
+.snyk
+
+# Node
+node_modules/
+dist/
+
+# Composer
+/vendor
+composer.lock
+
+# PHPUnit
+.phpunit*
+tests/coverage/
+
+# Logs
+*.log
+
+# Deployment
+push.sh
+push.exclude
+wp-deploy/*
+svn/

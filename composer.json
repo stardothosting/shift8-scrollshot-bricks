@@ -1,0 +1,35 @@
+{
+    "name": "shift8/scrollshot-for-bricks",
+    "description": "Scrolling tall-screenshot viewport effect for Bricks Builder",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Shift8 Web",
+            "email": "info@shift8web.ca",
+            "homepage": "https://shift8web.ca"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "brain/monkey": "^2.6",
+        "phpunit/phpunit": "^9.6",
+        "yoast/phpunit-polyfills": "^1.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Shift8\\ScrollShot\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --testdox",
+        "test:unit": "phpunit --testsuite=unit --testdox",
+        "test:coverage": "phpunit --coverage-text"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}

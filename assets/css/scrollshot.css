@@ -1,0 +1,70 @@
+/**
+ * Shift8 ScrollShot for Bricks
+ *
+ * @package Shift8_ScrollShot
+ */
+
+.s8-scrollshot {
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+.s8-scrollshot__viewport {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+
+.s8-scrollshot__image {
+	display: block;
+	width: 100%;
+	height: auto !important;
+	max-height: none !important;
+	will-change: transform;
+}
+
+/* Browser chrome bar (data-frame="browser") */
+.s8-scrollshot__chrome {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 10px 14px;
+	background: #e8e8e8;
+	border-radius: 8px 8px 0 0;
+}
+
+.s8-scrollshot__chrome span {
+	display: block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+}
+
+.s8-scrollshot__chrome span:nth-child(1) { background: #ff5f57; }
+.s8-scrollshot__chrome span:nth-child(2) { background: #febc2e; }
+.s8-scrollshot__chrome span:nth-child(3) { background: #28c840; }
+
+.s8-scrollshot--frame-browser {
+	border: 1px solid #d4d4d4;
+	border-radius: 8px;
+	background: #fff;
+}
+
+.s8-scrollshot--frame-browser .s8-scrollshot__viewport {
+	border-radius: 0 0 8px 8px;
+}
+
+/* Reduced motion: disable animation, show static image */
+@media ( prefers-reduced-motion: reduce ) {
+	.s8-scrollshot__image {
+		will-change: auto;
+		transform: none !important;
+		animation: none !important;
+	}
+}
+
+/* Hover-pause state (toggled by JS) */
+.s8-scrollshot--paused .s8-scrollshot__image {
+	animation-play-state: paused !important;
+}
