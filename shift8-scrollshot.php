@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Shift8 ScrollShot
- * Plugin URI:  https://shift8web.ca
+ * Plugin URI:  https://github.com/stardothosting/shift8-scrollshot
  * Description: Scrolling tall-screenshot viewport effect. Add the class s8-scrollshot to a container and s8-scrollshot__image to an image inside it.
  * Version:     1.0.0
  * Author:      Shift8 Web

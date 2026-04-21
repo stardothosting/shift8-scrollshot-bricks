@@ -1,5 +1,6 @@
 === Shift8 ScrollShot ===
-Contributors: shift8web
+Contributors: shift8
+Donate link: https://shift8web.ca
 Tags: scrollshot, screenshot, animation, scroll, viewport
 Requires at least: 5.8
 Tested up to: 6.9
