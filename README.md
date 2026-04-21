@@ -1,30 +1,50 @@
-# Shift8 ScrollShot for Bricks
+# Shift8 ScrollShot
 
-A WordPress plugin that creates a scrolling tall-screenshot viewport effect, designed for use with Bricks Builder but compatible with any theme or page builder.
+A WordPress plugin that creates a scrolling tall-screenshot viewport effect. A tall image is clipped by a fixed-height viewport and animates vertically inside it, giving the appearance of someone scrolling through a webpage.
 
-A tall image is clipped by a fixed-height viewport and animates vertically inside it, giving the appearance of someone scrolling through a webpage.
+Works with any theme, page builder, or hand-coded HTML.
 
 ## Requirements
 
 - WordPress 5.8+
 - PHP 7.4+
-- Bricks Builder (recommended, not required)
 
 ## Installation
 
-1. Upload the `shift8-scrollshot-bricks` folder to `/wp-content/plugins/`.
+1. Upload the `shift8-scrollshot` folder to `/wp-content/plugins/`.
 2. Activate the plugin in the WordPress admin.
 
 ## Quick Start
 
-In Bricks Builder:
-
-1. Add a **Container** element. Give it the CSS class `s8-scrollshot`.
-2. Inside the container, add an **Image** element. Give it the CSS class `s8-scrollshot__image`.
+1. Add a container element (div, section, or page builder container). Give it the CSS class `s8-scrollshot`.
+2. Inside the container, add an image element. Give it the CSS class `s8-scrollshot__image`.
 3. Use a tall image (for example, a full-page screenshot).
 4. Optionally add data attributes to the container or image to configure behavior.
 
 The plugin automatically detects elements with these classes and applies the scroll effect.
+
+### Plain HTML Example
+
+```html
+<div class="s8-scrollshot"
+     data-mode="auto"
+     data-duration="15000"
+     data-end-pause="2000"
+     data-frame="browser"
+     data-viewport-height="600">
+  <img class="s8-scrollshot__image"
+       src="full-page-screenshot.png"
+       alt="Website screenshot">
+</div>
+```
+
+### Page Builder Usage
+
+In Bricks Builder, Elementor, or other visual builders:
+
+1. Add a container/section element and apply the CSS class `s8-scrollshot`.
+2. Add an image element inside it and apply the CSS class `s8-scrollshot__image`.
+3. Use the builder's custom attributes panel to add any `data-*` attributes listed below.
 
 ## How It Works
 
@@ -54,21 +74,6 @@ Configuration is done entirely through HTML data attributes. Place them on the o
 | `data-viewport-width`  | integer | `0`            | Viewport width in pixels. 0 = fill container width  |
 | `data-easing`          | string  | `ease-in-out`  | CSS easing function for motion segments              |
 
-### Example
-
-```html
-<div class="s8-scrollshot"
-     data-mode="auto"
-     data-duration="15000"
-     data-end-pause="2000"
-     data-frame="browser"
-     data-viewport-height="600">
-  <img class="s8-scrollshot__image"
-       src="full-page-screenshot.png"
-       alt="Website screenshot">
-</div>
-```
-
 ## Modes
 
 ### Auto Mode (default)
@@ -89,10 +94,10 @@ Set `data-frame="browser"` to add a simple browser-style chrome bar above the vi
 
 The image fills the viewport width by default. To control the overall width:
 
-- Set a width on the Bricks container element (recommended), or
+- Set a width on the container element (recommended), or
 - Use `data-viewport-width="500"` to set a fixed pixel width.
 
-For best image quality, use the **Full** image size in Bricks rather than Large or Medium, so the browser has a high-resolution source to work with.
+For best image quality, use the full-size image rather than a scaled-down thumbnail, so the browser has a high-resolution source to work with.
 
 ## Accessibility
 
@@ -113,8 +118,8 @@ For best image quality, use the **Full** image size in Bricks rather than Large 
 ## Plugin Structure
 
 ```
-shift8-scrollshot-bricks/
-  shift8-scrollshot-bricks.php   # Plugin bootstrap, constants, autoload
+shift8-scrollshot/
+  shift8-scrollshot.php          # Plugin bootstrap, constants, autoload
   includes/
     class-plugin.php             # Singleton class, frontend asset enqueueing
   assets/
@@ -143,7 +148,7 @@ composer install
 
 ### CSS and JS
 
-Edit files in `assets/css/` and `assets/js/` directly. After modifying assets, bump the version constant in `shift8-scrollshot-bricks.php` to bust browser caches.
+Edit files in `assets/css/` and `assets/js/` directly. After modifying assets, bump the version constant in `shift8-scrollshot.php` to bust browser caches.
 
 ## License
 

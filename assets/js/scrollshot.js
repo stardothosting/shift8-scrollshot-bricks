@@ -1,5 +1,5 @@
 /**
- * Shift8 ScrollShot for Bricks
+ * Shift8 ScrollShot
  *
  * Vanilla JS, no dependencies. Supports auto-scroll and scroll-linked
  * modes with per-instance configuration via data-* attributes.
@@ -101,8 +101,8 @@
 	/**
 	 * Read data-* attributes from the wrapper and the image. Wrapper
 	 * values take priority, then image values, then built-in defaults.
-	 * This supports Bricks where attributes may be placed on either
-	 * the container or the image element.
+	 * This supports page builders where attributes may be placed on
+	 * either the container or the image element.
 	 */
 	ScrollShot.prototype.readSettings = function () {
 		var imgD  = this.image ? this.image.dataset : {};
@@ -187,7 +187,7 @@
 	/**
 	 * Calculate maximum vertical travel. Uses the aspect ratio and
 	 * rendered width rather than offsetHeight, because parent overflow
-	 * or Bricks image styles may constrain the layout height.
+	 * or page builder image styles may constrain the layout height.
 	 */
 	ScrollShot.prototype.measure = function () {
 		if ( ! this.image || ! this.image.naturalWidth ) {

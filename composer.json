@@ -1,6 +1,6 @@
 {
-    "name": "shift8/scrollshot-for-bricks",
-    "description": "Scrolling tall-screenshot viewport effect for Bricks Builder",
+    "name": "shift8/scrollshot",
+    "description": "Scrolling tall-screenshot viewport effect for WordPress",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "authors": [

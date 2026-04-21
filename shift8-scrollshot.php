@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: Shift8 ScrollShot for Bricks
+ * Plugin Name: Shift8 ScrollShot
  * Plugin URI:  https://shift8web.ca
- * Description: Scrolling tall-screenshot viewport effect for use with Bricks Builder. Add the class s8-scrollshot to a container and s8-scrollshot__image to an image inside it.
+ * Description: Scrolling tall-screenshot viewport effect. Add the class s8-scrollshot to a container and s8-scrollshot__image to an image inside it.
  * Version:     1.0.0
  * Author:      Shift8 Web
  * Author URI:  https://shift8web.ca
  * License:     GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: shift8-scrollshot-bricks
+ * Text Domain: shift8-scrollshot
  * Domain Path: /languages
  * Requires at least: 5.8
  * Tested up to: 6.8

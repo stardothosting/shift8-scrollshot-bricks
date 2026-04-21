@@ -1,6 +1,6 @@
-=== Shift8 ScrollShot for Bricks ===
+=== Shift8 ScrollShot ===
 Contributors: shift8web
-Tags: bricks, scrollshot, screenshot, animation, scroll
+Tags: scrollshot, screenshot, animation, scroll, viewport
 Requires at least: 5.8
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -8,11 +8,11 @@ Stable tag: 1.0.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Scrolling tall-screenshot viewport effect for Bricks Builder. Makes a tall image appear to scroll inside a fixed-height container.
+Scrolling tall-screenshot viewport effect. Makes a tall image appear to scroll inside a fixed-height container.
 
 == Description ==
 
-Shift8 ScrollShot for Bricks creates a scrolling screenshot viewport effect. Drop a tall image inside a Bricks container, add two CSS classes, and the plugin handles the rest.
+Shift8 ScrollShot creates a scrolling screenshot viewport effect. Drop a tall image inside a container, add two CSS classes, and the plugin handles the rest. Works with any theme, page builder, or hand-coded HTML.
 
 Features:
 
@@ -28,19 +28,33 @@ Features:
 
 == Installation ==
 
-1. Upload the shift8-scrollshot-bricks folder to /wp-content/plugins/.
+1. Upload the shift8-scrollshot folder to /wp-content/plugins/.
 2. Activate the plugin through the Plugins screen in WordPress.
-3. Open a page in Bricks Builder and follow the usage guide below.
+3. Follow the usage guide below.
 
-== Usage with Bricks Builder ==
+== Usage ==
 
-Step 1: Add a Container element in Bricks. Under Style > CSS > CSS Classes, add: s8-scrollshot
+Step 1: Add a container element (a div, section, or page builder container). Give it the CSS class: s8-scrollshot
 
-Step 2: Inside that container, add an Image element. Under Style > CSS > CSS Classes, add: s8-scrollshot__image
+Step 2: Inside that container, add an image element. Give it the CSS class: s8-scrollshot__image
 
-Step 3 (optional): Select either the container or the image element and open Style > Attributes. Add data attributes to configure the behavior.
+Step 3 (optional): Add data attributes to the container or image to configure the behavior.
 
-Note: Data attributes can be placed on either the wrapper or the image. If the same attribute appears on both, the wrapper value takes priority.
+Data attributes can be placed on either the wrapper or the image. If the same attribute appears on both, the wrapper value takes priority.
+
+== Page Builder Usage ==
+
+In Bricks Builder, Elementor, or other visual builders:
+
+1. Add a container/section element and apply the CSS class s8-scrollshot.
+2. Add an image element inside it and apply the CSS class s8-scrollshot__image.
+3. Use the builder's custom attributes panel to add any data-* attributes.
+
+In plain HTML:
+
+<div class="s8-scrollshot" data-mode="auto" data-duration="15000">
+  <img class="s8-scrollshot__image" src="screenshot.png" alt="Screenshot">
+</div>
 
 == Data Attributes ==
 
@@ -56,9 +70,9 @@ data-easing: any CSS easing string (default: ease-in-out)
 
 == Frequently Asked Questions ==
 
-= Does it work without Bricks? =
+= Does it require a specific page builder? =
 
-Yes. The plugin scans the DOM for .s8-scrollshot and .s8-scrollshot__image classes regardless of which theme or page builder rendered them.
+No. The plugin scans the DOM for .s8-scrollshot and .s8-scrollshot__image classes regardless of which theme or page builder rendered them. It works with Bricks, Elementor, Gutenberg blocks, hand-coded HTML, or any other setup.
 
 = Can I have multiple instances on one page? =
 
@@ -70,7 +84,7 @@ The plugin detects this and does nothing. No errors are thrown.
 
 = How do I control the width? =
 
-Set a width on the Bricks container element, or use the data-viewport-width attribute with a pixel value. The image fills the viewport width automatically.
+Set a width on the container element, or use the data-viewport-width attribute with a pixel value. The image fills the viewport width automatically.
 
 = How do I make the scroll slower? =
 

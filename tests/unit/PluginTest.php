@@ -18,8 +18,8 @@ class PluginTest extends TestCase {
 		Monkey\setUp();
 
 		Functions\when( 'plugin_dir_path' )->justReturn( '/test/path/' );
-		Functions\when( 'plugin_dir_url' )->justReturn( 'http://example.com/wp-content/plugins/shift8-scrollshot-bricks/' );
-		Functions\when( 'plugin_basename' )->justReturn( 'shift8-scrollshot-bricks/shift8-scrollshot-bricks.php' );
+		Functions\when( 'plugin_dir_url' )->justReturn( 'http://example.com/wp-content/plugins/shift8-scrollshot/' );
+		Functions\when( 'plugin_basename' )->justReturn( 'shift8-scrollshot/shift8-scrollshot.php' );
 		Functions\when( 'load_plugin_textdomain' )->justReturn( true );
 		Functions\when( 'add_action' )->justReturn( true );
 	}
@@ -119,7 +119,7 @@ class PluginTest extends TestCase {
 
 		Functions\when( 'load_plugin_textdomain' )->alias( function ( $domain ) use ( &$called ) {
 			$called = true;
-			$this->assertSame( 'shift8-scrollshot-bricks', $domain );
+			$this->assertSame( 'shift8-scrollshot', $domain );
 		} );
 
 		$plugin = \Shift8_ScrollShot_Plugin::get_instance();

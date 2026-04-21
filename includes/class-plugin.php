@@ -2,10 +2,10 @@
 /**
  * Core plugin class. Handles asset enqueueing for the frontend.
  *
- * Bricks stores page content as JSON in postmeta, so we cannot reliably
- * inspect post_content for the marker class. Assets are enqueued
- * unconditionally on the frontend (they are small) and the JS exits
- * immediately when no .s8-scrollshot elements exist on the page.
+ * Some page builders store content as serialized data in postmeta, so
+ * we cannot reliably inspect post_content for the marker class. Assets
+ * are enqueued unconditionally on the frontend (they are small) and the
+ * JS exits immediately when no .s8-scrollshot elements exist on the page.
  *
  * @package Shift8_ScrollShot
  */
@@ -33,7 +33,7 @@ final class Shift8_ScrollShot_Plugin {
 
 	public function load_textdomain(): void {
 		load_plugin_textdomain(
-			'shift8-scrollshot-bricks',
+			'shift8-scrollshot',
 			false,
 			dirname( SHIFT8_SCROLLSHOT_BASENAME ) . '/languages'
 		);

@@ -1,6 +1,6 @@
 <?php
 /**
- * PHPUnit bootstrap for Shift8 ScrollShot for Bricks.
+ * PHPUnit bootstrap for Shift8 ScrollShot.
  *
  * Uses Brain/Monkey to mock WordPress functions so the plugin
  * can be loaded and tested without a full WordPress installation.
@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 Functions\when( 'plugin_dir_path' )->justReturn( dirname( __DIR__ ) . '/' );
-Functions\when( 'plugin_dir_url' )->justReturn( 'http://example.com/wp-content/plugins/shift8-scrollshot-bricks/' );
-Functions\when( 'plugin_basename' )->justReturn( 'shift8-scrollshot-bricks/shift8-scrollshot-bricks.php' );
+Functions\when( 'plugin_dir_url' )->justReturn( 'http://example.com/wp-content/plugins/shift8-scrollshot/' );
+Functions\when( 'plugin_basename' )->justReturn( 'shift8-scrollshot/shift8-scrollshot.php' );
 Functions\when( 'load_plugin_textdomain' )->justReturn( true );
 Functions\when( 'add_action' )->justReturn( true );
 Functions\when( 'add_filter' )->justReturn( true );
 Functions\when( 'wp_enqueue_style' )->justReturn( true );
 Functions\when( 'wp_enqueue_script' )->justReturn( true );
 
-require dirname( __DIR__ ) . '/shift8-scrollshot-bricks.php';
+require dirname( __DIR__ ) . '/shift8-scrollshot.php';
