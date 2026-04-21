@@ -20,7 +20,6 @@ class PluginTest extends TestCase {
 		Functions\when( 'plugin_dir_path' )->justReturn( '/test/path/' );
 		Functions\when( 'plugin_dir_url' )->justReturn( 'http://example.com/wp-content/plugins/shift8-scrollshot/' );
 		Functions\when( 'plugin_basename' )->justReturn( 'shift8-scrollshot/shift8-scrollshot.php' );
-		Functions\when( 'load_plugin_textdomain' )->justReturn( true );
 		Functions\when( 'add_action' )->justReturn( true );
 	}
 
@@ -74,8 +73,10 @@ class PluginTest extends TestCase {
 		$this->assertSame( SHIFT8_SCROLLSHOT_VERSION, $enqueued['style'][3] );
 		$this->assertSame( SHIFT8_SCROLLSHOT_VERSION, $enqueued['script'][3] );
 
-		// Script loaded in footer
-		$this->assertTrue( $enqueued['script'][4] );
+		// Script loaded in footer with defer strategy
+		$this->assertIsArray( $enqueued['script'][4] );
+		$this->assertTrue( $enqueued['script'][4]['in_footer'] );
+		$this->assertSame( 'defer', $enqueued['script'][4]['strategy'] );
 	}
 
 	public function test_enqueue_assets_uses_correct_file_paths(): void {
@@ -114,20 +115,6 @@ class PluginTest extends TestCase {
 		$this->assertEmpty( $enqueued['script_deps'] );
 	}
 
-	public function test_load_textdomain_calls_wordpress_function(): void {
-		$called = false;
-
-		Functions\when( 'load_plugin_textdomain' )->alias( function ( $domain ) use ( &$called ) {
-			$called = true;
-			$this->assertSame( 'shift8-scrollshot', $domain );
-		} );
-
-		$plugin = \Shift8_ScrollShot_Plugin::get_instance();
-		$plugin->load_textdomain();
-
-		$this->assertTrue( $called );
-	}
-
 	public function test_version_constant_is_defined(): void {
 		$this->assertTrue( defined( 'SHIFT8_SCROLLSHOT_VERSION' ) );
 		$this->assertSame( '1.0.0', SHIFT8_SCROLLSHOT_VERSION );
@@ -148,11 +135,9 @@ class PluginTest extends TestCase {
 
 		$this->assertTrue( $ref->hasMethod( 'get_instance' ) );
 		$this->assertTrue( $ref->hasMethod( 'enqueue_assets' ) );
-		$this->assertTrue( $ref->hasMethod( 'load_textdomain' ) );
 
 		$this->assertTrue( $ref->getMethod( 'get_instance' )->isPublic() );
 		$this->assertTrue( $ref->getMethod( 'enqueue_assets' )->isPublic() );
-		$this->assertTrue( $ref->getMethod( 'load_textdomain' )->isPublic() );
 	}
 
 	public function test_css_file_exists(): void {

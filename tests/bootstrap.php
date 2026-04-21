@@ -21,7 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 Functions\when( 'plugin_dir_path' )->justReturn( dirname( __DIR__ ) . '/' );
 Functions\when( 'plugin_dir_url' )->justReturn( 'http://example.com/wp-content/plugins/shift8-scrollshot/' );
 Functions\when( 'plugin_basename' )->justReturn( 'shift8-scrollshot/shift8-scrollshot.php' );
-Functions\when( 'load_plugin_textdomain' )->justReturn( true );
 Functions\when( 'add_action' )->justReturn( true );
 Functions\when( 'add_filter' )->justReturn( true );
 Functions\when( 'wp_enqueue_style' )->justReturn( true );

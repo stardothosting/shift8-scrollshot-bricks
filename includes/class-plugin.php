@@ -28,15 +28,6 @@ final class Shift8_ScrollShot_Plugin {
 
 	private function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-	}
-
-	public function load_textdomain(): void {
-		load_plugin_textdomain(
-			'shift8-scrollshot',
-			false,
-			dirname( SHIFT8_SCROLLSHOT_BASENAME ) . '/languages'
-		);
 	}
 
 	/**
@@ -59,7 +50,10 @@ final class Shift8_ScrollShot_Plugin {
 			SHIFT8_SCROLLSHOT_URL . 'assets/js/scrollshot.js',
 			array(),
 			SHIFT8_SCROLLSHOT_VERSION,
-			true
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
 		);
 	}
 }
